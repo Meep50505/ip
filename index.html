@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopírovat IP adresu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p id="code">ms46.hicoria.cloud:44910</p>
+    <button onclick="copyToClipboard()">Kopírovat IP adresu</button>
+
+    <script>
+        function copyToClipboard() {
+            const codeElement = document.getElementById('code');
+            const text = codeElement.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('IP adresa byla zkopírována do schránky!');
+            }).catch(err => {
+                console.error('Chyba při kopírování: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
